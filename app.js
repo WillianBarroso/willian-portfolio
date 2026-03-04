@@ -1,9 +1,11 @@
-const SUPABASE_URL = window.ENV.SUPABASE_URL;
-const SUPABASE_ANON_KEY = window.ENV.SUPABASE_ANON_KEY;
+// safety check
+if (!window.ENV) {
+  throw new Error("config.js not loaded");
+}
 
 const client = supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_ANON_KEY
+  window.ENV.SUPABASE_URL,
+  window.ENV.SUPABASE_ANON_KEY
 );
 
 const form = document.getElementById("contact-form");
@@ -32,5 +34,4 @@ form.addEventListener("submit", async (e) => {
     console.error(err);
     status.textContent = "❌ Error sending message.";
   }
- 
-} );
+});
