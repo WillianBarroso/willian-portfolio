@@ -1,0 +1,11 @@
+{
+  "routes": [
+    {
+      "src": "/env.js",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "dest": "/env.js"
+    }
+  ]
+}

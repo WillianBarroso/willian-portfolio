@@ -1,7 +1,17 @@
 // safety check
-if (!window.ENV) {
+/* if (!window.ENV) {
   throw new Error("config.js not loaded");
+  
+} */
+
+if (!window.ENV) {
+  throw new Error("Environment variables not loaded");
 }
+
+const client = supabase.createClient(
+  window.ENV.SUPABASE_URL,
+  window.ENV.SUPABASE_ANON_KEY
+);
 
 const client = supabase.createClient(
   window.ENV.SUPABASE_URL,
