@@ -32,4 +32,5 @@ form.addEventListener("submit", async (e) => {
     console.error(err);
     status.textContent = "❌ Error sending message.";
   }
-});
+ 
+} );
